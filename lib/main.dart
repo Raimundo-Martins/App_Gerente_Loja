@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gerente_loja/screens/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,6 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Gerente - Loja',
       theme: ThemeData(primaryColor: Colors.pinkAccent),
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen(),
     );
   }
 }
