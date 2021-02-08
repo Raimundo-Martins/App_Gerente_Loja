@@ -1,4 +1,4 @@
-# gerente_loja
+# Aplicativo para Gerenciar a Loja Virtual
 
 A new Flutter project.
 
