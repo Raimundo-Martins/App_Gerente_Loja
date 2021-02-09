@@ -74,6 +74,8 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             children: [
               UsersTab(),
+              Container(color: Colors.red),
+              Container(color: Colors.blue)
             ],
           ),
         ),

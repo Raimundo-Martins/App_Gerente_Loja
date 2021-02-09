@@ -4,7 +4,7 @@ import 'package:shimmer/shimmer.dart';
 class UserTile extends StatelessWidget {
   final Map<String, dynamic> user;
 
-  UserTile({this.user});
+  UserTile(this.user);
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +12,10 @@ class UserTile extends StatelessWidget {
 
     if (user.containsKey('money'))
       return ListTile(
-        title: Text(user['name'], style: textStyle),
+        title: Text(user['nome'], style: textStyle),
         subtitle: Text(user['email'], style: textStyle),
         trailing: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Text('Pedidos: ${user['orders']}', style: textStyle),
