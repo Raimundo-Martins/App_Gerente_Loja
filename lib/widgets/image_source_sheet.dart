@@ -16,7 +16,7 @@ class ImageSourceSheet extends StatelessWidget {
         maxHeight: 1,
         maxWidth: 1,
       );
-      onImageSelected
+      onImageSelected(croppedImage);
     }
   }
 
@@ -25,12 +25,14 @@ class ImageSourceSheet extends StatelessWidget {
     return BottomSheet(
       onClosing: () {},
       builder: (context) => Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           FlatButton(
             child: Text(
               'Câmera',
             ),
             onPressed: () async {
+              // ignore: deprecated_member_use
               File image = await ImagePicker.pickImage(
                 source: ImageSource.camera,
               );
@@ -42,6 +44,7 @@ class ImageSourceSheet extends StatelessWidget {
               'Galeria',
             ),
             onPressed: () async {
+              // ignore: deprecated_member_use
               File image = await ImagePicker.pickImage(
                 source: ImageSource.gallery,
               );

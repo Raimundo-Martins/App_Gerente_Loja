@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gerente_loja/widgets/image_source_sheet.dart';
 
 class ImagesWidget extends FormField<List> {
   ImagesWidget({
@@ -11,8 +12,10 @@ class ImagesWidget extends FormField<List> {
           onSaved: onSaved,
           validator: validator,
           initialValue: initialValue,
+          // ignore: deprecated_member_use
           autovalidate: autoValidate,
           builder: (state) => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 height: 124,
@@ -51,7 +54,17 @@ class ImagesWidget extends FormField<List> {
                               color: Colors.white.withAlpha(50),
                             ),
                             onTap: () {
-                              showModalBottomSheet(context: context, builder: (context) => ImageSourceSheet(),);
+                              showModalBottomSheet(
+                                context: context,
+                                builder: (context) => ImageSourceSheet(
+                                  onImageSelected: (image) {
+                                    state.didChange(
+                                      state.value..add(image),
+                                    );
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              );
                             },
                           ),
                         ),
