@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gerente_loja/widgets/add_size_dialog.dart';
 
 class ProductSizes extends FormField<List> {
   ProductSizes(
-      {List initialValue,
+      {BuildContext context,
+      List initialValue,
       FormFieldSetter<List> onSaved,
       FormFieldValidator<List> validator})
       : super(
@@ -43,14 +45,23 @@ class ProductSizes extends FormField<List> {
                   .toList()
                     ..add(
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () async {
+                          String size = await showDialog(
+                              context: context,
+                              builder: (context) => AddSizeDialog());
+
+                          if (size != null)
+                            state.didChange(state.value..add(size));
+                        },
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
                               Radius.circular(4),
                             ),
                             border: Border.all(
-                              color: Colors.pinkAccent,
+                              color: state.hasError
+                                  ? Colors.red
+                                  : Colors.pinkAccent,
                               width: 3,
                             ),
                           ),

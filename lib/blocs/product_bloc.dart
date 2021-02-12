@@ -58,6 +58,10 @@ class ProductBloc extends BlocBase {
     unsavedDado['images'] = images;
   }
 
+  void saveSizes(List sizes) {
+    unsavedDado['sizes'] = sizes;
+  }
+
   void saveTitle(String title) {
     unsavedDado['title'] = title;
   }
