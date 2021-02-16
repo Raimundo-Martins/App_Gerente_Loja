@@ -30,9 +30,6 @@ class CategoryTile extends StatelessWidget {
           ),
           title: Text(
             category.data['title'],
-          ),
-          subtitle: Text(
-            category.data['subtitle'],
             style: TextStyle(
               color: Colors.grey[850],
               fontWeight: FontWeight.w500,

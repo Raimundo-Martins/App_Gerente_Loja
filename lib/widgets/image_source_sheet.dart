@@ -13,8 +13,6 @@ class ImageSourceSheet extends StatelessWidget {
     if (image != null) {
       File croppedImage = await ImageCropper.cropImage(
         sourcePath: image.path,
-        maxHeight: 1,
-        maxWidth: 1,
       );
       onImageSelected(croppedImage);
     }
